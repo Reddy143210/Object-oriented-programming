@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int maxOccurrence(int A[], int size){
+   int mxcount=0;
+   int res=-1;
+   unordered_map<int,int>mp;
+   for(int i=0;i<size;i++){
+      mp[A[i]]++;
+   }
+   for(auto x:mp){
+      if(x.second>mxcount){
+         res= x.first;
+         mxcount=x.second;
+      }
+   }
+   return res;
+}
+int main(){
+   int N=6;
+   int A[N]= {1,4,4,4,2,1};
+   int ans= maxOccurrence(A,N);
+   cout<<ans<<endl;
+   return 0;
+}
